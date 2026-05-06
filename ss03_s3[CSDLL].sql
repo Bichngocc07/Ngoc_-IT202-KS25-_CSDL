@@ -26,6 +26,6 @@ WHERE
 -- Thời gian: Không mua hàng hơn 6 tháng (Tính từ 01/04/2026 trở về trước, 
 -- tức là LastPurchaseDate < '2025-10-01').
 
-Dữ liệu sạch: Phải có Email để không làm crash hệ thống gửi thư (Email IS NOT NULL).
+-- Dữ liệu sạch: Phải có Email để không làm crash hệ thống gửi thư (Email IS NOT NULL).
 
-Trạng thái: Tài khoản phải đang hoạt động (Status != 'Locked').
+-- Trạng thái: Tài khoản phải đang hoạt động (Status != 'Locked').
