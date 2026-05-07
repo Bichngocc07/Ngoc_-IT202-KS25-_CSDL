@@ -48,9 +48,9 @@ CREATE TABLE score (
 INSERT INTO Teachers (teacher_id, full_name, email) VALUES
 (1, 'Phạm Thị Lan', 'lanpt@hnue.edu.vn'),
 (2, 'Hoàng Văn Bắc', 'bachv@gmail.com'),
-(3, 'Nguyễn Văn A', 'anv@gmail.com'),
-(4, 'Trần Thị B', 'btt@gmail.com'),
-(5, 'Lê Văn C', 'clv@gmail.com');
+(3, 'Nguyễn Văn Anh', 'anv@gmail.com'),
+(4, 'Trần Thị Bình', 'btt@gmail.com'),
+(5, 'Lê Văn Chửng', 'clv@gmail.com');
 
 -- 2. Thêm 5 Khóa học
 INSERT INTO course (course_id, course_name, course_description, total_sessions, teacher_id) VALUES
