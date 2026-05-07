@@ -63,10 +63,10 @@ INSERT INTO course (course_id, course_name, course_description, total_sessions, 
 -- 3. Thêm 5 Sinh viên
 INSERT INTO students (student_id, full_name, email) VALUES
 (202601, 'Nguyễn Bảo Hoàng', 'baohoang@gmail.com'),
-(202602, 'Phạm Minh D', 'dpm@gmail.com'),
-(202603, 'Vũ Thị E', 'evut@gmail.com'),
-(202604, 'Đỗ Văn F', 'fdovan@gmail.com'),
-(202605, 'Bùi Thị G', 'gbui@gmail.com');
+(202602, 'Phạm Minh Dương', 'dpm@gmail.com'),
+(202603, 'Vũ Thị Engs', 'evut@gmail.com'),
+(202604, 'Đỗ Văn Fhet', 'fdovan@gmail.com'),
+(202605, 'Bùi Thị Giang', 'gbui@gmail.com');
 
 -- 4. Thêm dữ liệu đăng ký (Enrollment)
 INSERT INTO enrollment (student_id, course_id) VALUES
@@ -74,8 +74,7 @@ INSERT INTO enrollment (student_id, course_id) VALUES
 (202602, 101), (202603, 103), 
 (202604, 104);
 
--- 5. Thêm kết quả học tập (Score)
--- Lưu ý: Nếu bạn chưa chạy ALTER TABLE để sửa DECIMAL(2,2) thì điểm 8.5 sẽ báo lỗi
+
 INSERT INTO score (student_id, course_id, midterm_score, final_score) VALUES
 (202601, 101, 8.5, 9.0),
 (202601, 102, 7.0, 8.0),
@@ -96,11 +95,10 @@ UPDATE score
 SET final_score = 9.5 
 WHERE student_id = 202601 AND course_id = 101;
 -- PHẦN IV - XÓA DỮ LIỆU
--- 1. Xóa kết quả học tập trước (để tránh lỗi ràng buộc khóa ngoại nếu cần)
+
 DELETE FROM score 
 WHERE student_id = 202604 AND course_id = 104;
 
--- 2. Xóa lượt đăng ký học
 DELETE FROM enrollment 
 WHERE student_id = 202604 AND course_id = 104;
 -- PHẦN V - TRUY VẤN DỮ LIỆU
@@ -113,13 +111,11 @@ SELECT * FROM Teachers;
 -- 3. Lấy danh sách các khóa học
 SELECT * FROM course;
 
--- 4. Lấy thông tin các lượt đăng ký (Hiển thị tên SV và tên Khóa học cho dễ nhìn)
 SELECT e.enrollment_id, s.full_name, c.course_name, e.enroll_date
 FROM enrollment e
 JOIN students s ON e.student_id = s.student_id
 JOIN course c ON e.course_id = c.course_id;
 
--- 5. Lấy thông tin bảng điểm
 SELECT sc.score_id, s.full_name, c.course_name, sc.midterm_score, sc.final_score
 FROM score sc
 JOIN students s ON sc.student_id = s.student_id
